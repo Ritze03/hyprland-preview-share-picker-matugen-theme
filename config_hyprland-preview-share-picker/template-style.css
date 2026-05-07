@@ -1,6 +1,6 @@
 * {
   all: unset;
-  font-family: "JetBrains Mono NF";
+  font-family: "%font%";
   color: %text%;
   font-weight: bold;
   font-size: 16px;

@@ -15,8 +15,9 @@ echo -e "This script will modify or create files in:"
 echo -e "1. ~/.config/hypr/xdph.conf"
 echo -e "2. ~/.config/matugen/config.toml"
 echo -e "3. ~/.config/hyprland-preview-share-picker/"
-echo -e "   - config.yaml, generated-colors.css, generate-style-css.sh,"
-echo -e "   - style.css, template-colors.css, template-style.css\n"
+echo -e "   - config.yaml, font.txt, generated-colors.css,"
+echo -e "   - generate-style-css.sh, style.css, template-colors.css,"
+echo -e "   - template-style.css\n"
 
 # Check existence for safety report
 EXISTING_FILES=0
@@ -86,6 +87,38 @@ else
   read -p "Press [Enter] to continue..."
 fi
 
+# --- Font Selection ---
+clear
+echo -e "${CYAN}[Font Selection]${NC}"
+echo -e "----------------\n"
+
+echo -e "Note: You can change your font choice anytime by editing:"
+echo -e "${YELLOW}~/.config/hyprland-preview-share-picker/font.txt${NC}\n"
+
+DMS_INSTALLED=false
+if command -v dms &>/dev/null; then
+  DMS_INSTALLED=true
+fi
+
+echo "Choose a font for the picker UI:"
+echo "1) JetBrains Mono NF"
+if [ "$DMS_INSTALLED" = true ]; then
+  echo -e "2) Inter Variable ${CYAN}(Default in DankMaterialShell)${NC}"
+else
+  echo -e "2) Inter Variable ${YELLOW}(Note: May require manual installation if not present)${NC}"
+fi
+echo ""
+
+read -p "Select an option (1-2): " font_choice
+
+case $font_choice in
+2) SELECTED_FONT="Inter Variable" ;;
+*) SELECTED_FONT="JetBrains Mono NF" ;;
+esac
+
+echo -e "\n${GREEN}Selected: $SELECTED_FONT${NC}"
+sleep 1.5
+
 # --- Picker Theme Configuration ---
 clear
 echo -e "${CYAN}[Picker Theme Configuration]${NC}"
@@ -103,14 +136,16 @@ if [ ! -d "$PICKER_DIR" ] || [ ! -f "$PICKER_DIR/config.yaml" ]; then
   if [ "$install_picker" == "y" ]; then
     mkdir -p "$PICKER_DIR"
     cp config_hyprland-preview-share-picker/* "$PICKER_DIR/"
+    echo "$SELECTED_FONT" >"$PICKER_DIR/font.txt"
     chmod +x "$PICKER_DIR/generate-style-css.sh"
     echo -e "${GREEN}Theme files installed.${NC}"
   fi
 else
-  echo -e "${YELLOW}$PICKER_DIR/config.yaml already exists.${NC}"
+  echo -e "${YELLOW}$PICKER_DIR already exists.${NC}"
   read -p "Overwrite existing theme configuration? (y/N): " over_picker
   if [ "$over_picker" == "y" ]; then
     cp config_hyprland-preview-share-picker/* "$PICKER_DIR/"
+    echo "$SELECTED_FONT" >"$PICKER_DIR/font.txt"
     chmod +x "$PICKER_DIR/generate-style-css.sh"
     echo -e "${GREEN}Theme files updated.${NC}"
   fi
