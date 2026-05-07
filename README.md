@@ -15,7 +15,7 @@ This theme is specifically designed to match the color scheme of [DankMaterialSh
 
 ## How it works
 
-This theme utilizes a specific "behavior chain" to bypass common compatibility issues between Matugen variables and GTK CSS. Here is the automated workflow:
+This theme utilizes a specific workflow to bypass common compatibility issues between Matugen variables and GTK CSS. Here is the automated workflow:
 
 1. **Matugen** detects your wallpaper and generates a new color palette.
 2. It populates `generated-colors.css` using a provided template.
