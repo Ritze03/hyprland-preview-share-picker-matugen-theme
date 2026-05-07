@@ -6,10 +6,10 @@ This theme is specifically designed to match the color scheme of [DankMaterialSh
 
 ## Previews
 
+![Purple Preview](https://raw.githubusercontent.com/Ritze03/hyprland-preview-share-picker-matugen-theme/refs/heads/main/preview/purple.png)
 ![Blue Preview](https://raw.githubusercontent.com/Ritze03/hyprland-preview-share-picker-matugen-theme/refs/heads/main/preview/blue.png)
 ![Teal Preview](https://raw.githubusercontent.com/Ritze03/hyprland-preview-share-picker-matugen-theme/refs/heads/main/preview/teal.png)
 ![Green Preview](https://raw.githubusercontent.com/Ritze03/hyprland-preview-share-picker-matugen-theme/refs/heads/main/preview/green.png)
-![Purple Preview](https://raw.githubusercontent.com/Ritze03/hyprland-preview-share-picker-matugen-theme/refs/heads/main/preview/purple.png)
 
 ---
 
