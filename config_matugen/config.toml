@@ -1,0 +1,4 @@
+[templates.hyprland-preview-share-picker]
+input_path = "~/.config/hyprland-preview-share-picker/template-colors.css"
+output_path = "~/.config/hyprland-preview-share-picker/generated-colors.css"
+post_hook = "~/.config/hyprland-preview-share-picker/generate-style-css.sh"
