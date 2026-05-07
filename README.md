@@ -1,3 +1,3 @@
 # hyprland-preview-share-picker-matugen-theme
 
-kinda ugly, but it works.
+a bit of a hack, but it works and looks nice.
